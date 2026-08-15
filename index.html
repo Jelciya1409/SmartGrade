@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartGrade</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="logo">SmartGrade</div>
+
+        <p class="subtitle">
+            Student Academic Performance Analyzer
+        </p>
+
+        <h2>Enter Student Details</h2>
+
+        <form action="/predict"method="POST">
+
+            <div class="form-group">
+                <label>Student Name</label>
+                <input
+                    type="text"
+                    name="student_name"
+                    placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label>Register Number</label>
+                <input
+                    type="text"
+                    name="register_number"
+                    placeholder="Enter register number">
+            </div>
+
+            <div class="form-group">
+                <label>Semester</label>
+                <input
+                    type="number"
+                    name="semester"
+                    min="1"
+                    max="8"
+                    placeholder="Enter semester">
+            </div>
+
+            <div class="form-group">
+                <label>Number of Subjects</label>
+
+                <div id="subject-container"></div>
+                <div>  
+                    <input
+                    type="number"
+                    id="subjects"
+                    name="subjects"
+                    min="1"
+                    max="15"
+                    placeholder="Enter number of subjects"
+                    oninput="createSubjectFields()"
+                    required>
+            </div>
+            <div class="form-group">
+    <label>Attendance (%)</label>
+    <input 
+        type="number"
+        name="attendance"
+        min="0"
+        max="100"
+        placeholder="Enter attendance percentage"
+        required
+    >
+</div>
+
+<div class="form-group">
+    <label>Assignment Marks</label>
+    <input 
+        type="number"
+        name="assignment_marks"
+        min="0"
+        max="100"
+        placeholder="Enter assignment marks"
+        required
+    >
+</div>
+
+<div class="form-group">
+    <label>Unit Test 1 Marks</label>
+    <input 
+        type="number"
+        name="unit_test_1"
+        min="0"
+        max="100"
+        placeholder="Enter Unit Test 1 marks"
+        required
+    >
+</div>
+
+<div class="form-group">
+    <label>Unit Test 2 Marks</label>
+    <input 
+        type="number"
+        name="unit_test_2"
+        min="0"
+        max="100"
+        placeholder="Enter Unit Test 2 marks"
+        required
+    >
+</div>
+
+<div class="form-group">
+    <label>Previous GPA (Optional)</label>
+    <input 
+        type="number"
+        name="previous_gpa"
+        min="0"
+        max="10"
+        step="0.01"
+        placeholder="Enter previous GPA if available"
+    >
+</div>
+
+
+            <button type="submit">Continue</button>
+
+        </form>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
