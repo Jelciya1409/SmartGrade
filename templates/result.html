@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SmartGrade Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="
+    {% if grade in ['A', 'B'] %}
+        good-result
+    {% elif grade == 'C' %}
+        average-result
+    {% else %}
+        low-result
+    {% endif %}
+">
+
+<div class="result-container">
+
+    <div class="result-header">
+        <div class="logo">SmartGrade</div>
+        <p>Student Academic Performance Analyzer</p>
+    </div>
+
+    <div class="result-card">
+
+        <h2>🎓 Student Result</h2>
+
+        <div class="student-info">
+
+            <div class="info-item">
+                <span>Student Name</span>
+                <strong>{{ student_name }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Register Number</span>
+                <strong>{{ register_number }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Semester</span>
+                <strong>{{ semester }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Number of Subjects</span>
+                <strong>{{ subjects }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Attendance</span>
+                <strong>{{ attendance }}%</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Assignment Marks</span>
+                <strong>{{ assignment_marks }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Unit Test 1</span>
+                <strong>{{ unit_test_1 }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Unit Test 2</span>
+                <strong>{{ unit_test_2 }}</strong>
+            </div>
+
+            <div class="info-item">
+                <span>Previous GPA</span>
+                <strong>{{ previous_gpa }}</strong>
+            </div>
+
+        </div>
+
+        <div class="performance-section">
+
+            <div class="score-box">
+                <span>Total Score</span>
+                <strong>{{ total_score }}</strong>
+            </div>
+
+            <div class="score-box">
+                <span>Percentage</span>
+                <strong>{{ percentage }}%</strong>
+            </div>
+
+            <div class="grade-box">
+                <span>Grade</span>
+                <strong>{{ grade }}</strong>
+            </div>
+
+        </div>
+
+        <div class="status-message">
+
+            {% if grade in ['A', 'B'] %}
+                <h3>🎉 Excellent Performance!</h3>
+                <p>Keep up the great work and continue your progress.</p>
+
+            {% elif grade == 'C' %}
+                <h3>📚 Good Effort!</h3>
+                <p>You can improve further with a little more practice.</p>
+
+            {% else %}
+                <h3>💪 Needs Improvement</h3>
+                <p>Don't give up! Focus on your studies and improve your performance.</p>
+            {% endif %}
+            
+
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
